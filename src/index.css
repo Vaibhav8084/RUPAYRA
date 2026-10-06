@@ -1,0 +1,315 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   RUPAYRA x TASTESKILL x IMPECCABLE STYLE DESIGN SYSTEM V2.0
+   Theme: Kin-Paku (Gold Leaf), Sumi-e (Obsidian Ink), Emerald Shield
+   Geometric & Tactile Aesthetics • NO GENERIC PILLS
+   ========================================================================= */
+
+:root {
+  color-scheme: dark;
+  --ks-bg: #090909;
+  --ks-surface: #131313;
+  --ks-elevated: #1a1a1a;
+  --ks-border: #262626;
+  --ks-border-subtle: #1e1e1e;
+  
+  /* Primary Kin-paku Gold */
+  --ks-gold: #FFD43B;
+  --ks-gold-hover: #f5c623;
+  --ks-gold-faint: rgba(255, 212, 59, 0.08);
+  --ks-gold-glow: rgba(255, 212, 59, 0.25);
+  
+  /* Crimson Threat (Strictly Danger / Fraud Interception) */
+  --ks-crimson: #E53935;
+  --ks-crimson-faint: rgba(229, 57, 53, 0.12);
+  --ks-crimson-glow: rgba(229, 57, 53, 0.35);
+
+  /* Emerald Shield (Verified Safe Transactions) */
+  --ks-safe: #10B981;
+  --ks-safe-faint: rgba(16, 185, 129, 0.12);
+  --ks-safe-glow: rgba(16, 185, 129, 0.3);
+
+  /* Off-White Paper & Earth Tones */
+  --ks-paper: #F5F1E8;
+  --ks-ink-muted: #9e978c;
+  --ks-ink-faint: #4e4940;
+  --ks-orange: #D9822B;
+}
+
+/* Atmospheric Japanese Sumi Paper Texture with Noise Filter */
+body {
+  background-color: var(--ks-bg);
+  color: var(--ks-paper);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(255, 212, 59, 0.04) 0%, transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(16, 185, 129, 0.02) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.022'/%3E%3C/svg%3E");
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+
+/* TasteSkill Micro-Sheen sweep */
+@keyframes sheenSweep {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+.sheen-active:hover::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.16), transparent);
+  transform: skewX(-20deg);
+  animation: sheenSweep 0.75s ease-out forwards;
+  pointer-events: none;
+}
+
+/* Tactile Buttons (Geometric, NOT Pill Shaped) */
+.ks-button-primary {
+  background: #FFD43B;
+  color: #090909;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 8px; /* Crisp geometric corners, no pills */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 20px -4px rgba(255, 212, 59, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ks-button-primary:hover {
+  background: #f7c92b;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 12px 28px -6px rgba(255, 212, 59, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.ks-button-primary:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.ks-button-danger {
+  background: #E53935;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 8px; /* Crisp geometric corners */
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px -4px rgba(229, 57, 53, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ks-button-danger:hover {
+  background: #d32f2f;
+  box-shadow: 
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    0 14px 32px -6px rgba(229, 57, 53, 0.55),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+.ks-button-safe {
+  background: #10B981;
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    0 8px 24px -4px rgba(16, 185, 129, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ks-button-safe:hover {
+  background: #059669;
+  transform: translateY(-1px);
+}
+
+/* Impeccable Style: Instrument Strip (Physical Switch Keys) */
+.ks-instrument-strip {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  background: #0f0f0f;
+  border: 1px solid #242424;
+  padding: 3px;
+  border-radius: 8px; /* Crisp bevel */
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.ks-instrument-key {
+  padding: 6px 14px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  color: #8c857b;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.ks-instrument-key:hover {
+  color: #F5F1E8;
+}
+
+.ks-instrument-key.is-active {
+  background: #1c1c1c;
+  color: #FFD43B;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 212, 59, 0.3);
+}
+
+/* Geometric Plinth Cards (NO Generic Pills) */
+.t-card-plinth {
+  background: #131313;
+  border: 1px solid #242424;
+  border-radius: 10px;
+  box-shadow: 
+    0 6px 20px -8px rgba(0, 0, 0, 0.6),
+    0 1px 2px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.t-card-plinth:hover {
+  border-color: #383838;
+  transform: translateY(-2px);
+  box-shadow: 
+    0 12px 30px -10px rgba(0, 0, 0, 0.8),
+    0 2px 4px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.t-card-plinth-danger {
+  background: #150a0a;
+  border: 1px solid rgba(229, 57, 53, 0.4);
+  border-radius: 10px;
+  box-shadow: 
+    0 8px 24px -6px rgba(229, 57, 53, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.t-card-plinth-danger:hover {
+  border-color: #E53935;
+  box-shadow: 
+    0 14px 34px -6px rgba(229, 57, 53, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.t-card-plinth-safe {
+  background: #0a140f;
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 10px;
+  box-shadow: 
+    0 8px 24px -6px rgba(16, 185, 129, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.t-card-plinth-safe:hover {
+  border-color: #10B981;
+  box-shadow: 
+    0 14px 34px -6px rgba(16, 185, 129, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* Geometric Network Node Shapes (Replacing pills completely) */
+.node-hexagon {
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.node-diamond {
+  clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+}
+
+.node-chamfered {
+  clip-path: polygon(10px 0, calc(100% - 10px) 0, 100% 10px, 100% calc(100% - 10px), calc(100% - 10px) 100%, 10px 100%, 0 calc(100% - 10px), 0 10px);
+}
+
+.node-octagon {
+  clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+/* Japanese Sumi Seal / Stamp (Geometric) */
+.sumi-stamp {
+  border: 1.5px solid rgba(229, 57, 53, 0.7);
+  color: #E53935;
+  background: rgba(229, 57, 53, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+.sumi-stamp-safe {
+  border: 1.5px solid rgba(16, 185, 129, 0.7);
+  color: #10B981;
+  background: rgba(16, 185, 129, 0.06);
+  font-family: 'JetBrains Mono', monospace;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+
+/* 3D Coin Flip Animation Styles */
+.coin-3d-wrapper {
+  perspective: 1000px;
+}
+
+.coin-3d {
+  width: 96px;
+  height: 96px;
+  transform-style: preserve-3d;
+  transition: transform 1s ease-out;
+}
+
+/* Custom Scrollbar in Dark/Warm Palette */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d0d0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FFD43B;
+}
+
+/* Tabular Numerals for Financial Data */
+.num-tabular {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
